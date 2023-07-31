@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3},{"content":"pool-1-thread-4","id":4},{"content":"pool-1-thread-5","id":5}];
+var items = [{"id":1,"group":1,"content":"com\/api\/automation\/deleterequest\/deleteJobEntry[1:8]","start":1690235402873,"end":1690235405117,"title":"com\/api\/automation\/deleterequest\/deleteJobEntry[1:8] 15:50:02.873-15:50:05.117 To delete the job entry from application using jobId"},{"id":2,"group":2,"content":"com\/api\/automation\/deleterequest\/deleteJobEntry[2:29]","start":1690235402874,"end":1690235405128,"title":"com\/api\/automation\/deleterequest\/deleteJobEntry[2:29] 15:50:02.874-15:50:05.128 To delete the job entry from application using jobId and delete the job entry twice"},{"id":3,"group":3,"content":"com\/api\/automation\/deleterequest\/deleteJobEntry[3:49]","start":1690235402873,"end":1690235405182,"title":"com\/api\/automation\/deleterequest\/deleteJobEntry[3:49] 15:50:02.873-15:50:05.182 To demo request chaining"},{"id":4,"group":4,"content":"com\/api\/automation\/tags\/createJobEntry[1:9]","start":1690235402914,"end":1690235404874,"title":"com\/api\/automation\/tags\/createJobEntry[1:9] 15:50:02.914-15:50:04.874 create a job entry in json format"},{"id":5,"group":5,"content":"com\/api\/automation\/tags\/createJobEntry[2:19]","start":1690235402921,"end":1690235404875,"title":"com\/api\/automation\/tags\/createJobEntry[2:19] 15:50:02.921-15:50:04.875 create a job entry in xml format - Accept: Respuesta en tipo de formato - Content-Type: Contenido del body tipo de formato"},{"id":6,"group":4,"content":"com\/api\/automation\/tags\/createJobEntry[3:28]","start":1690235404889,"end":1690235405070,"title":"com\/api\/automation\/tags\/createJobEntry[3:28] 15:50:04.889-15:50:05.070 create a job entry in xml format including response in xml - Accept: Respuesta en tipo de formato - Content-Type: Contenido del body tipo de formato","className":"failed"},{"id":7,"group":5,"content":"com\/api\/automation\/tags\/createJobEntry[4:37]","start":1690235404904,"end":1690235405015,"title":"com\/api\/automation\/tags\/createJobEntry[4:37] 15:50:04.904-15:50:05.015 create a job entry in json format using embedded expression"},{"id":8,"group":5,"content":"com\/api\/automation\/tags\/createJobEntry[5:47]","start":1690235405029,"end":1690235405155,"title":"com\/api\/automation\/tags\/createJobEntry[5:47] 15:50:05.029-15:50:05.155 create a job entry in xml format including response in xml using embedded expression"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

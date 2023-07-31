@@ -1,0 +1,17 @@
+com\api\automation\putrequest\TestPutRunner.class
+com\api\automation\ReadSystemProperty.class
+com\api\automation\getrequest\TestVariableRunner.class
+com\api\automation\ignore\TestGetRunner.class
+com\api\automation\fileUpload\TestFileUploadRunner.class
+com\api\automation\patchrequest\TestPatchRunner.class
+com\api\automation\queryparam\TestQueryParamRunner.class
+com\api\automation\getrequest\TestValidationRunner.class
+com\api\automation\ParallelRunner.class
+com\api\automation\dataDriven\TestDataDrivenRunner.class
+com\api\automation\getrequest\TestGetRunner.class
+com\api\automation\postrequest\TestJSRunner.class
+com\api\automation\postrequest\TestPostRunner.class
+com\api\automation\deleterequest\TestDeleteRunner.class
+com\api\automation\ParallelBuilderTags.class
+com\api\automation\CommonCode.class
+com\api\automation\ParallelBuilder.class

@@ -1,0 +1,36 @@
+Feature: Schema validation
+	Here you can validate the datatype of each json record
+  
+  Background: Create and initialize base URL
+		Given url 'http://localhost:9897'
+
+  Scenario: create a job entry in json format - Accept: Respuesta en tipo de formato - Content-Type: Contenido del body tipo de formato external file
+  	Given path '/normal/webapi/add'
+  	* def body = read("dataPackage/jobEntry.json")
+  	And request body
+    And headers {Accept: 'application/json', Content-Type: 'application/json'}	
+  	When method post
+  	And status 201
+  	Then print response
+  	And match response == 
+  	"""
+  	{
+  		"jobId": '#number',
+  		"jobTitle": '#string',
+  		"jobDescription": '#string',
+  		"experience": '#[] #string',
+  		"project": '#[] #object' 
+  	}
+  	"""
+  	
+	Scenario: Schema validation for GET end point
+		Given path '/normal/webapi/all'
+		And header Accept = 'application/json'
+		When method get
+		Then status 200
+		* def projectSchema = { "projectName": '#string', "technology": '#[] #string' }
+		* def mainSchema = { "jobId": '#number', "jobTitle": '#string', "jobDescription": '#string', "experience": '#[] #string', "project": '#[] ##(projectSchema)' }
+		And match response == 
+		"""
+		'#[] ##(mainSchema)'
+		"""
