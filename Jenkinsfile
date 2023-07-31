@@ -1,6 +1,7 @@
 pipeline {
     agent any
 
+	parameters {choice{name: 'Environment', choices: ['staging','preprod','prod'], description: 'Profile needs to be used while executing tests'}}
     stages {
         stage('Cleanup Stage') {
             steps {
